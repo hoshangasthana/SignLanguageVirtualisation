@@ -1,24 +1,7 @@
 import cv2
 import time
 import mediapipe as mp
-# # import matplotlib.pyplot as plt
-# class handDetector():
-#     def __init__(self,mode=False,maxhands=2,detectionCon=0.5,trackCon=0.5):
-#         self.mode=mode
-#         self.maxhands=maxhands
-#         self.detectionCon=detectionCon
-#         self.trackCon=trackCon
-#         self.mpHands=mp.solutions.hands
-#         self.hands=self.mpHands.Hands(self.mode,self.maxhands,1,self.detectionCon,self.trackCon)
-#         self.mpDraw=mp.solutions.drawing_utils
-#     def findhands(self,img,draw=True):
-#         imgRGB=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-#         self.results = self.hands.process(imgRGB)
-#         # print(results)
-#         if self.results.multi_hand_landmarks:
-#             for handlms in self.results.multi_hand_landmarks:
-#                 if draw:
-#                     self.mpDraw.draw_landmarks(img,handlms,self.mpHands.HAND_CONNECTIONS)
+
 import HandTrackingModule1 as htm
 import numpy as np
 import csv
@@ -58,7 +41,7 @@ def main():
     countLabel = 0
 
     p = dict()
-    targetLabel = "no"
+    targetLabel = "yes"
     sampleSize = 50
     p['index']=[targetLabel+"_" + str(i) for i in range (sampleSize)]
 
@@ -94,7 +77,7 @@ def main():
     df = pd.DataFrame(p)
     df.insert(22,"Label", [targetLabel for i in range(sampleSize)])
     print(df)
-    df.to_csv(targetLabel+'_trainingdata.csv')
+    df.to_csv('trainingData\\'+targetLabel+'_trainingdata.csv')
 
 if __name__=="__main__":
     main() 
