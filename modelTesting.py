@@ -81,14 +81,14 @@ def main():
     
         cv2.imshow('image1',img)
         keyPressed = cv2.waitKey(5)
-        # if keyPressed == ord('q'):
-        #     break;
-    # print(p)
-    # print("\n")
-    # df = pd.DataFrame(p)
-    # df.insert(22,"Label", [targetLabel for i in range(sampleSize)])
-    # print(df)
-    # df.to_csv('trainingData\\'+targetLabel+'_trainingdata.csv')
+        if keyPressed == ord('q'):
+            break;
+    print(p)
+    print("\n")
+    df = pd.DataFrame(p)
+    df.insert(22,"Label", [targetLabel for i in range(sampleSize)])
+    print(df)
+    df.to_csv('trainingData\\'+targetLabel+'_trainingdata.csv')
 
 if __name__=="__main__":
     main()
